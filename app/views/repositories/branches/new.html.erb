@@ -1,0 +1,18 @@
+<p>Find me in app/views/repositories/branches/new.html.erb</p>
+
+<%= form_for @branch do |f| %>
+
+    <div class="form-group">
+        <%= f.label :repository %>
+        <%= f.select :repository_id, Repository.all.collect {|repo| [repo.name, repo.id]}, {:include_blank => "Select Repository"}, class: 'form-control' %><br/><br/>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %><br/>
+    </div>
+
+    <%= f.submit "Submit", disable_with: 'Submiting...', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', repository_path, class: 'btn btn-default cancel-button' %>
+
+<% end %>
