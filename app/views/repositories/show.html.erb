@@ -1,7 +1,7 @@
 <%= form_for @branch do |f| %>
 
     <%= f.submit "New Branch", disable_with: 'Submiting...', class: 'btn btn-success' %>
-    <%= link_to 'Cancel', repositories_branches_new_path(:id => @repository.id), class: 'btn btn-default cancel-button' %>
+    <%= link_to 'Cancel', repositories_path, class: 'btn btn-default cancel-button' %>
 
 <% end %>
 

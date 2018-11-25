@@ -41,7 +41,7 @@ class RepositoriesController < ApplicationController
     if Branch.exists?("master")
       @repository.branch = Branch.find(repository_id = @repo_id)
     else
-      @repository.branch = Branch.new
+      @branch = Branch.new
     end
   end
 
