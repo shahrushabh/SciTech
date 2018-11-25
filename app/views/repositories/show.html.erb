@@ -1,2 +1,7 @@
-<h1>Repositories#show</h1>
-<p>Find me in app/views/repositories/show.html.erb</p>
+<%= form_for @branch do |f| %>
+
+    <%= f.submit "New Branch", disable_with: 'Submiting...', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', repositories_branches_new_path(:id => @repository.id), class: 'btn btn-default cancel-button' %>
+
+<% end %>
+

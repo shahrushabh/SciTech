@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :repositories do
     get 'branches/new'
     get 'branches/create'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     get 'branches/index'
     get 'branches/show'
   end
+
   get 'repositories/new'
   get 'repositories/create'
   get 'repositories/update'
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   root 'repositories#index'
 
   resources :repositories
-  resources :branches
+  resources :repositories do
+    resources :branches
+  end
 end

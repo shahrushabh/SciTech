@@ -33,11 +33,25 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @page_title = "Title of the Reository"
+    @repo_id = params[:id]
+    if Repository.exists?(params[:id])
+      @repository = Repository.find(@repo_id)
+      @page_title = @repository.name
+    end
+    if Branch.exists?("master")
+      @repository.branch = Branch.find(repository_id = @repo_id)
+    else
+      @repository.branch = Branch.new
+    end
   end
 
   private 
     def repositoy_params
       params.require(:repository).permit(:name)
+    end
+
+    private 
+    def branch_params
+      params.require(:branch).permit(:name)
     end
 end

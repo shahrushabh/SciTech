@@ -1,6 +1,5 @@
-<p># To be replaced with a list of repositories this user is part of.</p>
 <ul class="no-bullets">
     <% @repositories.each do |repo| %>
-        <li><%= link_to repo[0], repositories_show_path, class: "list-group-item" %></li>
+        <li><%= link_to repo[0], repository_path(:id => repo[1]), class: "list-group-item" %></li>
     <% end %>
 </ul>

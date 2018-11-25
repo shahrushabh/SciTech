@@ -6,7 +6,8 @@ class Repositories::BranchesController < ApplicationController
   def new
     @page_title = "Create a new branch"
     @repository = Repository.new
-    @branch = Branch.new
+    @repository.branch = Branch.new
+    @branch = @repository.branch
   end
 
   def create
